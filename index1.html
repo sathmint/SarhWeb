@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sath Linux — Дистрибутив для пентеста и повседневной работы</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+color: #e2e8f0;
+line-height: 1.6;
+}
+
+.container {
+max-width: 1100px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+/* Header */
+header {
+padding: 40px 0;
+text-align: center;
+background: rgba(15, 23, 42, 0.8);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid #334155;
+}
+
+.logo {
+width: 120px;
+height: 120px;
+margin-bottom: 20px;
+border-radius: 50%;
+object-fit: cover;
+object-position: center;
+background-color: #161616;
+border: 2px solid #334155;
+box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+h1 {
+font-size: 2.5rem;
+margin-bottom: 10px;
+background: linear-gradient(90deg, #3b82f6, #10b981);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+font-size: 1.2rem;
+color: #94a3b8;
+max-width: 750px;
+margin: 0 auto;
+}
+
+/* Download Button */
+.download-section {
+text-align: center;
+margin: 40px 0;
+}
+
+.download-btn {
+display: inline-block;
+padding: 15px 40px;
+background: linear-gradient(90deg, #3b82f6, #10b981);
+color: white;
+text-decoration: none;
+border-radius: 50px;
+font-size: 1.2rem;
+font-weight: bold;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
+}
+
+.download-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6);
+}
+
+/* Main content */
+main {
+padding: 20px 0 60px;
+}
+
+.doc-section {
+background: rgba(30, 41, 59, 0.7);
+padding: 35px;
+border-radius: 15px;
+border: 1px solid #334155;
+margin-bottom: 30px;
+}
+
+.doc-section h2 {
+color: #10b981;
+font-size: 1.7rem;
+margin-bottom: 20px;
+border-bottom: 1px solid #334155;
+padding-bottom: 10px;
+}
+
+.doc-section h3 {
+color: #3b82f6;
+font-size: 1.35rem;
+margin-top: 28px;
+margin-bottom: 12px;
+}
+
+.doc-section h3:first-of-type {
+margin-top: 10px;
+}
+
+.doc-section p {
+color: #cbd5e1;
+margin-bottom: 14px;
+}
+
+.doc-section ul {
+margin-left: 22px;
+margin-bottom: 16px;
+color: #cbd5e1;
+}
+
+.doc-section li {
+margin-bottom: 8px;
+}
+
+.status-box {
+background: rgba(15, 23, 42, 0.6);
+border-left: 4px solid #3b82f6;
+padding: 16px 20px;
+border-radius: 8px;
+margin-top: 16px;
+}
+
+.note-box {
+background: rgba(15, 23, 42, 0.6);
+border-left: 4px solid #f59e0b;
+padding: 14px 18px;
+border-radius: 8px;
+margin: 16px 0;
+color: #e2e8f0;
+}
+
+code {
+background: rgba(15, 23, 42, 0.9);
+color: #38bdf8;
+padding: 2px 6px;
+border-radius: 4px;
+font-family: 'Consolas', 'Monaco', monospace;
+font-size: 0.95em;
+}
+
+pre {
+background: rgba(15, 23, 42, 0.9);
+border: 1px solid #334155;
+padding: 16px;
+border-radius: 8px;
+overflow-x: auto;
+margin: 16px 0;
+color: #e2e8f0;
+font-family: 'Consolas', 'Monaco', monospace;
+font-size: 0.95em;
+line-height: 1.5;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 18px 0;
+background: rgba(15, 23, 42, 0.5);
+border-radius: 8px;
+overflow: hidden;
+}
+
+th, td {
+padding: 12px 16px;
+text-align: left;
+border-bottom: 1px solid #334155;
+}
+
+th {
+background: rgba(15, 23, 42, 0.9);
+color: #3b82f6;
+font-weight: bold;
+}
+
+tr:last-child td {
+border-bottom: none;
+}
+
+/* Footer */
+footer {
+text-align: center;
+padding: 40px 0;
+background: rgba(15, 23, 42, 0.8);
+border-top: 1px solid #334155;
+color: #64748b;
+}
+
+@media (max-width: 600px) {
+.doc-section {
+padding: 20px;
+}
+h1 {
+font-size: 2rem;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container">
+<img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://w3.org' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2318181b'/%3E%3Cg transform='translate(100,100)'%3E%3Crect x='-2.5' y='-92' width='5' height='24' rx='1' fill='%2364748b'/%3E%3Crect x='-5' y='-95' width='10' height='5' rx='2' fill='%23cbd5e1'/%3E%3Crect x='-22' y='-68' width='44' height='5' rx='2' fill='%23cbd5e1'/%3E%3Cpolygon points='-4,-63 4,-63 4,78 0,94 -4,78' fill='%23e2e8f0'/%3E%3Cpolygon points='0,-63 4,-63 4,78 0,94' fill='%2394a3b8'/%3E%3Cpath d='M 45,-52 C 10,-75 -55,-65 -55,-20 C -55,20 25,10 25,45 C 25,70 -20,75 -48,55 C -25,85 45,80 52,38 C 58,-5 -22,5 -22,-25 C -22,-48 15,-52 45,-52 Z' fill='%231d4ed8'/%3E%3Cpath d='M 45,-52 C 25,-64 -10,-65 -32,-52 C -10,-56 18,-52 36,-42 Z' fill='%237dd3fc'/%3E%3Cpath d='M 36,-42 C 15,-48 -12,-35 -8,-15 C 12,-28 28,-25 45,-35 Z' fill='%23991b1b'/%3E%3Cpath d='M -4,-5 C 25,2 55,25 48,62 C 32,75 10,78 -15,74 C 15,70 28,52 22,30 C 16,12 -4,8 -4,-5 Z' fill='%23334155'/%3E%3Cpath d='M 22,12 C 42,22 52,42 46,60 C 42,42 32,26 18,18 Z' fill='%237dd3fc'/%3E%3C/g%3E%3C/svg%3E" alt="Sath Linux Logo" class="logo">
+<h1>Sath Linux 🐧</h1>
+<p class="subtitle">Дистрибутив на базе Debian Sid (rolling) с KDE Plasma 6 на Wayland</p>
+</div>
+</header>
+
+<main class="container">
+<section class="download-section">
+<a href="https://github.com/sathmint/Sath-Linux/releases/tag/v3.0_on_publish" class="download-btn" download>
+     Скачать Sath Linux 3.0 (1.37 ГБ)
+</a>
+</section>
+
+<section class="doc-section">
+<h2>О системе</h2>
+<p><strong>Sath Linux</strong> — дистрибутив на базе <strong>Debian Sid</strong> (rolling) с <strong>KDE Plasma 6 на Wayland</strong>. Он собран для повседневной работы, программирования, игр и обучения кибербезопасности: из коробки есть откат системы из меню загрузки, безопасные лаборатории для практики и переключатель режимов Daily / Hack.</p>
+<div class="status-box">
+<p style="margin-bottom: 0;"><strong>Статус:</strong> версия 3.0, добавлена Pandora (полноценный голосовой ИИ-ассистент, с которым ты общаешься голосом в обе стороны). Базовая система и установщик собираются скриптом из репозитория. Откат на снапшотах, Sath Lab и режимы Hack/Daily появились недавно и ещё проходят тестирование, поэтому возможны баги. Issues и Pull Requests приветствуются.</p>
+</div>
+</section>
+
+<section class="doc-section">
+<h2>✨ Главные фишки</h2>
+
+<h3>🛟 Откат системы из GRUB (Btrfs + snapper)</h3>
+<p>Система устанавливается на <strong>Btrfs</strong> с подтомами <code>@</code>, <code>@home</code>, <code>@log</code>, <code>@cache</code> и сжатием zstd.</p>
+<ul>
+<li>При первой загрузке установленной системы автоматически настраивается <strong>snapper</strong> и создаётся первый снапшот.</li>
+<li><strong>Перед каждой операцией apt и после неё</strong> создаётся пара снапшотов. Если обновление сломало систему, у тебя есть точка возврата.</li>
+<li><strong>grub-btrfs</strong> следит за каталогом снапшотов и сам добавляет их в меню GRUB. Выбираешь рабочий снапшот при загрузке и возвращаешься в нормальное состояние.</li>
+<li>Снапшоты по расписанию (почасовые, дневные, недельные) с автоматической очисткой старых.</li>
+<li>Проверить снапшоты: <code>sudo snapper list</code>.</li>
+</ul>
+<div class="note-box">
+<strong>Ограничение:</strong> снапшоты защищают файлы системы, но не загрузчик и не раздел ESP. Закрепление отката командой <code>snapper rollback</code> пока в доработке.
+</div>
+
+<h3>🧪 Sath Lab — полигоны для практики в один клик</h3>
+<p>Лаунчер уязвимых приложений для обучения ИБ. Работает в <strong>rootless Podman</strong>: контейнеры не требуют root и не ломают основную систему зависимостями.</p>
+<table>
+<thead>
+<tr>
+<th>Полигон</th>
+<th>Адрес</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DVWA</td>
+<td><code>http://127.0.0.1:8081</code></td>
+</tr>
+<tr>
+<td>OWASP Juice Shop</td>
+<td><code>http://127.0.0.1:3000</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Порты открываются <strong>только на 127.0.0.1</strong>, из сети полигоны недоступны.</li>
+<li>Запуск из меню приложений («Sath Lab») или из терминала:</li>
+</ul>
+<pre>sath-lab                 — графическое меню (kdialog)
+sath-lab start dvwa      — запустить и открыть в браузере
+sath-lab stop juice      — остановить
+sath-lab reset dvwa      — удалить контейнер (чистое состояние)
+sath-lab status          — статус всех полигонов</pre>
+<ul>
+<li>Образы скачиваются при первом запуске, нужен интернет.</li>
+<li>DVWA после запуска нужно один раз инициализировать на странице <code>/setup.php</code> («Create / Reset Database»).</li>
+<li>Используй полигоны только для обучения на собственных стендах.</li>
+</ul>
+
+<h3>🔀 Режимы Daily / Hack (иконка в трее)</h3>
+<p>Переключатель в системном трее: зелёная иконка — <strong>Daily</strong>, красная — <strong>Hack</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Daily</th>
+<th>Hack</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAC-адрес</td>
+<td>как обычно</td>
+<td>случайный для подключений без собственной настройки MAC в NetworkManager</td>
+</tr>
+<tr>
+<td>Входящий трафик</td>
+<td>без ограничений</td>
+<td>закрыт (nftables, разрешены только ответы на ваши запросы, DHCP и ICMPv6)</td>
+</tr>
+<tr>
+<td>Тема KDE</td>
+<td>Breeze Light</td>
+<td>Breeze Dark</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Режим хранится в <code>/run</code>, поэтому <strong>после перезагрузки система всегда в Daily</strong>.</li>
+<li>Переключение выполняет один скрипт <code>/usr/local/sbin/sath-mode</code>, для которого выдано правило sudo без пароля (только для него).</li>
+<li>Режим Hack <strong>не делает тебя анонимным</strong> сам по себе: Tor не заворачивает весь трафик, а лишь доступен как прокси. Это удобный набор настроек для работы с инструментами, а не гарантия приватности.</li>
+</ul>
+
+<h3>🔒 Чистая установка без «следов» live-режима</h3>
+<p>После установки Calamares автоматически удаляет live-пользователя <code>admin</code>, его sudo без пароля, автологин SDDM и домашнюю папку. Твой пользователь получает группу sudo и все настройки оформления (логотип, fastfetch, эффекты KWin) через <code>/etc/skel</code>.</p>
+</section>
+
+<section class="doc-section">
+<h2>🧰 Что внутри</h2>
+<ul>
+<li><strong>База:</strong> Debian Sid (<code>amd64</code>), ядро <code>linux-image-amd64</code>.</li>
+<База: Debian Sid (amd64), ядро linux-image-amd64.
+Рабочий стол: KDE Plasma 6 на Wayland, SDDM, анимации окон (wobbly windows, размытие, magic lamp).
+
+Терминал: Kitty + fastfetch с ASCII-логотипом S.
+
+Установщик: Calamares с ярлыком на рабочем столе live-системы.
+
+Игры: Steam, GameMode, MangoHud, Vulkan (включая 32-бит библиотеки).
+
+Драйверы: firmware-linux-nonfree, PipeWire, опционально NVIDIA (nvidia-open-kernel-dkms, nvidia-driver).
+
+Приложения: Firefox ESR, Dolphin, Kate, Spectacle, Ark, p7zip, ffmpeg, btop, git, curl, nano.
+
+Магазин приложений: KDE Discover с поддержкой Flatpak и репозиторием Flathub.
+
+Локали: английская и русская
